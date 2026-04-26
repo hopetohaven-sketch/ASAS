@@ -1,3 +1,10 @@
+I can see the error! It says "Gradle services aren't available right now" ? GitHub's servers had a temporary problem. Not your fault!
+The fix is to use gradlew instead of downloading Gradle. Let me update the build file.
+Fix ? Update build.yml on GitHub:
+Step 1 ? Go back to your repo (Code tab)
+Step 2 ? Click .github/workflows folder ? click build.yml
+Step 3 ? Click the pencil icon ?? (Edit)
+Step 4 ? Delete everything and paste this new version:
 name: Build TextPop APK
 on:
   push:
@@ -8,15 +15,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
+
       - uses: android-actions/setup-android@v3
-      - uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-version: '8.2'
-      - run: gradle assembleDebug
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Build APK
+        run: ./gradlew assembleDebug --no-daemon
+        env:
+          GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx2g"
+
       - uses: actions/upload-artifact@v4
         with:
           name: TextPop-APK
