@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.textpop.app">
+
+    <!-- Permissions for floating window -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- Accessibility to detect text selection globally -->
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"
+        tools:ignore="ProtectedPermissions"
+        xmlns:tools="http://schemas.android.com/tools"/>
+    <!-- Internet for Google/MV search -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="TextPop"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- Main launcher activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="TextPop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Floating window service -->
+        <service
+            android:name=".FloatingWindowService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+
+        <!-- Accessibility service to detect text selection in any app -->
+        <service
+            android:name=".TextSelectionAccessibilityService"
+            android:exported="true"
+            android:label="TextPop Selection"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+    </application>
+</manifest>

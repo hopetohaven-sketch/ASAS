@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="#0A0A0E">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="✂️ TextPop"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select any text → Copy · Google · MV"
+        android:textSize="14sp"
+        android:textColor="#88FFFFFF"
+        android:layout_marginBottom="32dp" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Checking permissions..."
+        android:textSize="14sp"
+        android:textColor="#CCFFFFFF"
+        android:background="#1AFFFFFF"
+        android:padding="16dp"
+        android:lineSpacingMultiplier="1.5"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/btn_overlay_permission"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="1. Enable Floating Window Permission"
+        android:textColor="#000000"
+        android:backgroundTint="#00FFA3"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btn_accessibility"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="2. Enable Accessibility Service"
+        android:textColor="#000000"
+        android:backgroundTint="#29B6F6"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="💡 After enabling both, select any text in ANY app — the popup will appear automatically."
+        android:textSize="13sp"
+        android:textColor="#66FFFFFF"
+        android:lineSpacingMultiplier="1.4" />
+
+</LinearLayout>

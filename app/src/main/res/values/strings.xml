@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TextPop</string>
+    <string name="accessibility_description">TextPop detects text you select in any app and shows a floating popup with Copy, Google, and MV buttons.</string>
+</resources>
